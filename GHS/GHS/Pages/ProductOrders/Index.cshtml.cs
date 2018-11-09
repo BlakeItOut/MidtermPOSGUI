@@ -20,9 +20,12 @@ namespace GHS.Pages.ProductOrders
 
         public IList<ProductOrderModel> ProductOrderModel { get;set; }
 
+        public IList<ProductModel> ProductModel { get; set; }
+
         public async Task OnGetAsync()
         {
             ProductOrderModel = await _context.ProductOrderModel.ToListAsync();
+            ProductModel = await _context.ProductModel.ToListAsync();
         }
     }
 }

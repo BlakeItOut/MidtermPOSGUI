@@ -5,7 +5,7 @@
     ViewData["Title"] = "Index";
 }
 
-<h2>Index</h2>
+<h2>Order</h2>
 
 <p>
     <a asp-page="Create">Create New</a>
@@ -14,10 +14,13 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.ProductOrderModel[0].OrderId)
+                @Html.DisplayNameFor(model => model.ProductModel[0].Name)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ProductOrderModel[0].ProductID)
+                @Html.DisplayNameFor(model => model.ProductModel[0].Category)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductModel[0].Price)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.ProductOrderModel[0].Quantity)
@@ -29,7 +32,13 @@
 @foreach (var item in Model.ProductOrderModel) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.OrderId)
+                @Html.DisplayFor(model => model.ProductModel[item.ProductID - 1002].Name)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.ProductModel[item.ProductID - 1002].Category)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.ProductModel[item.ProductID - 1002].Price)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ProductID)

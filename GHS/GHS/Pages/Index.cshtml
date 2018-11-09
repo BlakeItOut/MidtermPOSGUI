@@ -40,7 +40,7 @@
                     @Html.DisplayFor(modelItem => item.Price)
                 </td>
                 <td>
-                    <a asp-page="./ProductOrders/Create">Purchase</a>
+                    <a asp-page="./ProductOrders/Create" asp-route-id="@item.ProductId">Purchase</a>
                 </td>
             </tr>
         }
