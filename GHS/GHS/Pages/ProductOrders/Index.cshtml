@@ -1,5 +1,6 @@
 ﻿@page
 @model GHS.Pages.ProductOrders.IndexModel
+@using System.Linq;
 
 @{
     ViewData["Title"] = "Index";
@@ -7,9 +8,6 @@
 
 <h2>Order</h2>
 
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
 <table class="table">
     <thead>
         <tr>
@@ -32,16 +30,13 @@
 @foreach (var item in Model.ProductOrderModel) {
         <tr>
             <td>
-                @Html.DisplayFor(model => model.ProductModel[item.ProductID - 1002].Name)
+                @Html.DisplayFor(model => model.ProductModel.ToList().Find(x => x.ProductId == item.ProductID).Name)
             </td>
             <td>
-                @Html.DisplayFor(model => model.ProductModel[item.ProductID - 1002].Category)
+                @Html.DisplayFor(model => model.ProductModel.ToList().Find(x => x.ProductId == item.ProductID).Category)
             </td>
             <td>
-                @Html.DisplayFor(model => model.ProductModel[item.ProductID - 1002].Price)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ProductID)
+                @Html.DisplayFor(model => model.ProductModel.ToList().Find(x => x.ProductId == item.ProductID).Price)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Quantity)
